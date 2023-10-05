@@ -1,0 +1,25 @@
+<mat-card class="rounded p-2 bg-warning-subtle m-3">
+  <mat-card-title>{{ task.title }} ({{ task.status }})</mat-card-title>
+  <mat-card-subtitle> Due by {{ task.due | date }} </mat-card-subtitle>
+  <mat-card-content> {{ task.description }}</mat-card-content>
+  <mat-card-actions align="end">
+    <button
+      type="button"
+      mat-raised-button
+      color="accent"
+      (click)="onEditTask(task.id!)"
+    >
+      Edit
+    </button>
+    <button
+      class="ms-3"
+      type="button"
+      mat-raised-button
+      color="warn"
+      (click)="onDelete(task.id!)"
+    >
+      Delete
+    </button>
+  </mat-card-actions>
+  <mat-card-footer> </mat-card-footer>
+</mat-card>

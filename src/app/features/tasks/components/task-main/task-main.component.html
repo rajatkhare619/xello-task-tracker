@@ -1,0 +1,6 @@
+<xello-task-form></xello-task-form>
+<xello-tasks-list
+  [tasks$]="taskList$"
+  (updateTask)="onTaskUpdate($event)"
+  (taskDelete)="onTaskDelete($event)"
+></xello-tasks-list>

@@ -1,0 +1,11 @@
+<ng-container
+  class="tasks-list"
+  *ngFor="let task of tasks$ | async; trackBy: trackFn"
+>
+  <xello-task
+    class="w-25"
+    [task]="task"
+    (editTask)="onEditTask($event)"
+    (deleteTask)="onDeleteTask($event)"
+  ></xello-task>
+</ng-container>

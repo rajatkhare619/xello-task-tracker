@@ -1,0 +1,38 @@
+<h1 class="mt-4">{{ editedTask ? "Edit" : "Create" }} a task</h1>
+<form [formGroup]="taskForm" class="rounded p-1 border border-dark-subtle w-75">
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="due" />
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <mat-select formControlName="status">
+      <mat-option
+        *ngFor="let status of statusValues | keyvalue"
+        [value]="status.value"
+      >
+        {{ status.value }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button
+    type="submit"
+    mat-raised-button
+    color="primary"
+    [disabled]="taskForm.invalid"
+    (click)="submitTask()"
+  >
+    {{ editedTask ? "Update" : "Create" }}
+  </button>
+</form>
